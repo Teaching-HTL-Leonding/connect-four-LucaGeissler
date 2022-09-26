@@ -49,7 +49,7 @@ export class Level2Component {
       if (this.boardContent[colIx][i] === 0) {
         this.boardContent[colIx][i] = this.currentPlayerIndex;
         this.currentPlayerIndex = this.currentPlayerIndex === 1 ? 2 : 1;
-        this.getWinnerIndex();
+        this.updateWinnerIndex();
         break;
       }
     }
@@ -66,17 +66,17 @@ export class Level2Component {
   /**
    * get the player (1 or 2) who has won the game
    */
-  private getWinnerIndex(): void {
+  private updateWinnerIndex(): void {
 
-    for (let y = 0; y < 4; y++) {
-      if (this.boardContent[y][0] !== 0 && this.boardContent[y][1] === this.boardContent[y][0] && this.boardContent[y][2] === this.boardContent[y][0] && this.boardContent[y][3] === this.boardContent[y][0]) {
-        this.currentWinnerIndex =  this.boardContent[y][0];
+    for (let col = 0; col < 4; col++) {
+      if (this.boardContent[col][0] !== 0 && this.boardContent[col][1] === this.boardContent[col][0] && this.boardContent[col][2] === this.boardContent[col][0] && this.boardContent[col][3] === this.boardContent[col][0]) {
+        this.currentWinnerIndex =  this.boardContent[col][0];
       }
     }
 
-    for (let y = 0; y < 4; y++) {
-      if (this.boardContent[0][y] !== 0 && this.boardContent[1][y] === this.boardContent[0][y] && this.boardContent[2][y] === this.boardContent[0][y] && this.boardContent[3][y] === this.boardContent[0][y]) {
-        this.currentWinnerIndex = this.boardContent[0][y];
+    for (let row = 0; row < 4; row++) {
+      if (this.boardContent[0][row] !== 0 && this.boardContent[1][row] === this.boardContent[0][row] && this.boardContent[2][row] === this.boardContent[0][row] && this.boardContent[3][row] === this.boardContent[0][row]) {
+        this.currentWinnerIndex = this.boardContent[0][row];
       }
     }
     if (this.boardContent[0][0] !== 0 && this.boardContent[1][1] === this.boardContent[0][0] && this.boardContent[2][2] === this.boardContent[0][0] && this.boardContent[3][3] === this.boardContent[0][0]) {
