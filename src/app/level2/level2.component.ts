@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./level2.component.css'],
 })
 export class Level2Component {
+
   public currentPlayerIndex!: number;
   private currentWinnerIndex!: number;
   private playerNames: string[];
@@ -67,26 +68,44 @@ export class Level2Component {
    * get the player (1 or 2) who has won the game
    */
   private updateWinnerIndex(): void {
-
     for (let col = 0; col < 4; col++) {
-      if (this.boardContent[col][0] !== 0 && this.boardContent[col][1] === this.boardContent[col][0] && this.boardContent[col][2] === this.boardContent[col][0] && this.boardContent[col][3] === this.boardContent[col][0]) {
-        this.currentWinnerIndex =  this.boardContent[col][0];
+      if (
+        this.boardContent[col][0] !== 0 &&
+        this.boardContent[col][1] === this.boardContent[col][0] &&
+        this.boardContent[col][2] === this.boardContent[col][0] &&
+        this.boardContent[col][3] === this.boardContent[col][0]
+      ) {
+        this.currentWinnerIndex = this.boardContent[col][0];
       }
     }
 
     for (let row = 0; row < 4; row++) {
-      if (this.boardContent[0][row] !== 0 && this.boardContent[1][row] === this.boardContent[0][row] && this.boardContent[2][row] === this.boardContent[0][row] && this.boardContent[3][row] === this.boardContent[0][row]) {
+      if (
+        this.boardContent[0][row] !== 0 &&
+        this.boardContent[1][row] === this.boardContent[0][row] &&
+        this.boardContent[2][row] === this.boardContent[0][row] &&
+        this.boardContent[3][row] === this.boardContent[0][row]
+      ) {
         this.currentWinnerIndex = this.boardContent[0][row];
       }
     }
-    if (this.boardContent[0][0] !== 0 && this.boardContent[1][1] === this.boardContent[0][0] && this.boardContent[2][2] === this.boardContent[0][0] && this.boardContent[3][3] === this.boardContent[0][0]) {
+    if (
+      this.boardContent[0][0] !== 0 &&
+      this.boardContent[1][1] === this.boardContent[0][0] &&
+      this.boardContent[2][2] === this.boardContent[0][0] &&
+      this.boardContent[3][3] === this.boardContent[0][0]
+    ) {
       this.currentWinnerIndex = this.boardContent[0][0];
     }
-    if (this.boardContent[0][3] !== 0 && this.boardContent[1][2] === this.boardContent[0][3] && this.boardContent[2][1] === this.boardContent[0][3] && this.boardContent[3][0] === this.boardContent[0][3]) {
-      this.currentWinnerIndex =  this.boardContent[0][3];
+    if (
+      this.boardContent[0][3] !== 0 &&
+      this.boardContent[1][2] === this.boardContent[0][3] &&
+      this.boardContent[2][1] === this.boardContent[0][3] &&
+      this.boardContent[3][0] === this.boardContent[0][3]
+    ) {
+      this.currentWinnerIndex = this.boardContent[0][3];
     }
-
-    }
+  }
 
   // TODO: Complete this class by adding the appropriate code
   // At the end, this should become a working connect-four-game on a 4 x 4 board.
