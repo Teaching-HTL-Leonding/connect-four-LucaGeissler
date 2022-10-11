@@ -10,7 +10,7 @@ export class BoardService {
   // TODO: Add the required code here
   public nrRows = 6;
   public nrCols = 7;
-  private board!: number[][];
+  public board!: number[][];
 
   private playerNames: string[];
   private _currentPlayerIndex!: number;
